@@ -9,6 +9,8 @@ Inspired by Vkontakte app. Minimum iOS target is 5.0
 
 Customization
 ---------
+You need to modify SIMenuConfiguration.h directly.
+
  - Menu item height *+ (float)itemCellHeight;*
  - Animation duration of menu appearence *+ (float)animationDuration;*
  - Menu substrate alpha value *+ (float)backgroundAlpha;*
@@ -41,12 +43,23 @@ Example
         	SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Menu"];
         	//Set in which view we will display a menu
         	[menu displayMenuInView:self.view];
+        	// use the following code if you are using navigatrionController
+        	// [menu displayMenuInView:self.navigationController.view];
         	//Create array of items
         	menu.items = @[@"News", @"Top Articles", @"Messages"];
         	menu.delegate = self;
         	self.navigationItem.titleView = menu;
     	}
     }
+
+	- (void)viewWillDisappear:(BOOL)animated
+	{
+		// make sure menu will be closed after the view disappear
+    	SINavigationMenuView *menu = (SINavigationMenuView*) 	self.navigationItem.titleView;
+    	if (menu.menuButton.isActive) {
+        	[menu onHideMenu];
+	    }
+	}    
     
     //Delegate method
     - (void)didSelectItemAtIndex:(NSUInteger)index

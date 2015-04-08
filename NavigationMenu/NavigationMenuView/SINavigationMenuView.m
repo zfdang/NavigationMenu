@@ -12,7 +12,6 @@
 #import "SIMenuConfiguration.h"
 
 @interface SINavigationMenuView  ()
-@property (nonatomic, strong) SIMenuButton *menuButton;
 @property (nonatomic, strong) SIMenuTable *table;
 @property (nonatomic, strong) UIView *menuContainer;
 @end
@@ -42,10 +41,10 @@
 - (void)onHandleMenuTap:(id)sender
 {
     if (self.menuButton.isActive) {
-        NSLog(@"On show");
+//        NSLog(@"On show");
         [self onShowMenu];
     } else {
-        NSLog(@"On hide");
+//        NSLog(@"On hide");
         [self onHideMenu];
     }
 }
