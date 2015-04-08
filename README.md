@@ -1,5 +1,12 @@
 Navigation Menu for iOS
 =============
+## Difference with original repo
+* Expose property / methods, so that menu can be hidden outside. 
+* Tune title property, so title font will be shrinked if title string is too long; title width will be reduced if title string is short
+* add sample code for NavigationMenu to work properly in ViewController
+
+
+## Introduction
 *Version 1.0*
 
 Navigation Menu is an Objective-C component that adds possibility to show menu from navigation bar.
